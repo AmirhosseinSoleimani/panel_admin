@@ -10,10 +10,10 @@ class UploadPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(AppPadding.p16),
+          padding: EdgeInsets.all(AppPadding.p16),
           child: Column(
             children: [
               ApprovedVideo(),

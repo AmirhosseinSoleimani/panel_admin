@@ -1,3 +1,4 @@
+import 'package:admin_panel/src/features/user_manager/presentation/pages/widgets/user_list/user_list.dart';
 import 'package:flutter/material.dart';
 
 class UserManagerPage extends StatelessWidget {
@@ -7,7 +8,13 @@ class UserManagerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('UserManagerPage'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            UserList(),
+          ],
+        ),
+      ),
     );
   }
 }

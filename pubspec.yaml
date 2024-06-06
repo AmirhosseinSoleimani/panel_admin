@@ -1,0 +1,85 @@
+name: admin_panel
+description: "A new Flutter project."
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  go_router: ^14.1.4
+  cupertino_icons: ^1.0.6
+  flutter_bloc: ^8.1.5
+  flutter_spinkit: ^5.2.1
+  shared_preferences: ^2.2.3
+  rxdart: ^0.27.7
+  flutter_animate: ^4.5.0
+  json_annotation: ^4.9.0
+  dio: ^5.4.3+1
+  freezed: any
+  freezed_annotation: ^2.4.1
+  injectable: ^2.4.2
+  get_it: ^7.7.0
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.11
+  injectable_generator: ^2.6.1
+  json_serializable: ^6.8.0
+flutter:
+
+  uses-material-design: true
+  generate: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+  fonts:
+    - family: "iransans_fa"
+      fonts:
+        - asset: assets/fonts/iransans_fa_black.ttf
+          weight: 700
+        - asset: assets/fonts/iransans_fa_bold.ttf
+          weight: 600
+        - asset: assets/fonts/iransans_fa_medium.ttf
+          weight: 500
+        - asset: assets/fonts/iransans_fa_regular.ttf
+          weight: 400
+        - asset: assets/fonts/iransans_fa_light.ttf
+          weight: 300
+        - asset: assets/fonts/iransans_fa_ultralight.ttf
+          weight: 200
+    - family: "iransans_en"
+      fonts:
+        - asset: assets/fonts/iransans_en_black.ttf
+          weight: 900
+        - asset: assets/fonts/iransans_en_bold.ttf
+          weight: 700
+        - asset: assets/fonts/iransans_en_medium.ttf
+          weight: 500
+        - asset: assets/fonts/iransans_en_regular.ttf
+          weight: 400
+        - asset: assets/fonts/iransans_en_light.ttf
+          weight: 300
+        - asset: assets/fonts/iransans_en_ultralight.ttf
+          weight: 200
+    - family: "ocra"
+      fonts:
+        - asset: assets/fonts/ocra_regular.ttf
+          weight: 400
+    - family: "Lobster"
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
+          weight: 400

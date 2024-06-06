@@ -1,0 +1,10 @@
+
+{
+  "userName": "Username",
+  "password": "Password",
+  "confirm": "Confirm",
+  "home": "Home",
+  "upload": "Upload",
+  "userManager": "UserManager",
+  "profile": "Profile"
+}

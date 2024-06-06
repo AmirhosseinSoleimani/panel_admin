@@ -19,6 +19,10 @@ class IconManager {
   static const IconData clock = CupertinoIcons.clock;
   static const IconData personAdd = CupertinoIcons.person_add;
   static const IconData personAddFill = CupertinoIcons.person_add_solid;
+  static const IconData delete = CupertinoIcons.delete;
+  static const IconData check = CupertinoIcons.check_mark;
+
+
 
 
 
@@ -34,5 +38,6 @@ class IconManager {
   static const IconData close = Icons.close;
   static const IconData uploadFill = Icons.cloud_upload_rounded;
   static const IconData upload = Icons.cloud_upload_outlined;
+  static const IconData more = Icons.more_vert_outlined;
 
 }

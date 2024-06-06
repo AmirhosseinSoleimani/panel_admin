@@ -20,7 +20,7 @@ class ColorThemeManager {
   static Color redColor = HexColor.fromHex('#ff1414');
   static Color lightRedColor = HexColor.fromHex('#ffe8e8');
 
-  static Color accent1 = HexColor.fromHex('#E4935D');
+  static Color green = HexColor.fromHex('#1c8139');
   static Color accent2 = HexColor.fromHex('#BEABA1');
   static Color lightBlue = HexColor.fromHex('#2FBFDE');
   static Color transparent = Colors.transparent;

@@ -34,4 +34,5 @@ class IconManager {
   static const IconData close = Icons.close;
   static const IconData uploadFill = Icons.cloud_upload_rounded;
   static const IconData upload = Icons.cloud_upload_outlined;
+
 }

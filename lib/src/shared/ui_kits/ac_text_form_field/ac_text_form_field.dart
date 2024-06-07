@@ -53,6 +53,7 @@ class ACTextFormField extends StatelessWidget {
         hintText: hintText,
         hintStyle: hintStyle ?? Theme.of(context).textTheme.bodyMedium,
         suffixIcon: suffixIcon,
+        labelText: hintText,
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               width: 2,

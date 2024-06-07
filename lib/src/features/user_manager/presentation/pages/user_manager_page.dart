@@ -1,5 +1,6 @@
-import 'package:admin_panel/src/features/user_manager/presentation/pages/widgets/user_list/user_list.dart';
-import 'package:admin_panel/src/shared/resources/resources.dart';
+import 'package:admin_panel/src/features/user_manager/presentation/pages/widgets/large_widget.dart';
+import 'package:admin_panel/src/features/user_manager/presentation/pages/widgets/small_widget.dart';
+import 'package:admin_panel/src/shared/ui_kits/responsive_widget/responsive_widget.dart';
 import 'package:flutter/material.dart';
 
 class UserManagerPage extends StatelessWidget {
@@ -8,17 +9,9 @@ class UserManagerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(AppPadding.p16),
-          child: Column(
-            children: [
-              UserList(),
-            ],
-          ),
-        ),
-      ),
+    return const ResponsiveWidget(
+      smallScreen: SmallWidgetUserManager(),
+      largeScreen: LargeWidgetUserManager(),
     );
   }
 }

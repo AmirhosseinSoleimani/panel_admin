@@ -31,7 +31,7 @@ class LightAppThemeData extends AppThemeData {
 
         tertiary: ColorThemeManager.colorBlack,
 
-        surfaceContainer: Colors.yellowAccent,
+        surfaceContainer: ColorThemeManager.lightBlue2,
         secondaryContainer: ColorThemeManager.grey,
 
         brightness: Brightness.light,

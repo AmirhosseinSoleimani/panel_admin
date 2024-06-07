@@ -1,6 +1,9 @@
 import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:flutter/material.dart';
 
+import 'delete_video.dart';
+import 'edit_video/edit_video.dart';
+
 class VideoListContainer extends StatelessWidget {
   const VideoListContainer({super.key, required this.titleVideo, required this.descriptionVideo, required this.publisherVideo, required this.datePublishVideo, required this.index});
   final int index;
@@ -48,14 +51,8 @@ class VideoListContainer extends StatelessWidget {
               width: AppSize.s48,
               child: Row(
                 children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(IconManager.more, size: AppSize.s24, color: ColorThemeManager.primary,),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(IconManager.delete, size: AppSize.s24, color: ColorThemeManager.redColor,),
-                  ),
+                  EditVideo(title: titleVideo, description: descriptionVideo,),
+                  const DeleteVideo(),
                 ],
               ),
             ),

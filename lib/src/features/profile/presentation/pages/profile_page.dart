@@ -1,5 +1,6 @@
-import 'package:admin_panel/src/features/profile/presentation/pages/widgets/profile_widget/profile_widget.dart';
-import 'package:admin_panel/src/features/profile/presentation/pages/widgets/setting_widget/setting_widget.dart';
+import 'package:admin_panel/src/features/profile/presentation/pages/widgets/large_screen.dart';
+import 'package:admin_panel/src/features/profile/presentation/pages/widgets/small_screen.dart';
+import 'package:admin_panel/src/shared/ui_kits/responsive_widget/responsive_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -10,20 +11,9 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        child: SizedBox(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                flex: 2,
-                child: SettingWidget(),
-              ),
-              Expanded(
-                flex: 3,
-                child: ProfileWidget(),
-              )
-            ],
-          ),
+        child: ResponsiveWidget(
+          smallScreen: SmallScreenProfile(),
+          largeScreen: LargeScreenProfile(),
         ),
       ),
     );

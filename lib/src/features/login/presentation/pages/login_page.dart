@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 const users =  {
   'dribbble@gmail.com': '12345',
   'hunter@gmail.com': 'academy',
+  'admin@gamil.com': '123',
 };
 
 class LoginPage extends StatelessWidget {

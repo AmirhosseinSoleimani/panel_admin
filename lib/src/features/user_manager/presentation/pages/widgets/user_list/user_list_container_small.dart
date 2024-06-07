@@ -3,8 +3,8 @@ import 'package:admin_panel/src/features/user_manager/presentation/pages/widgets
 import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:flutter/material.dart';
 
-class UserListContainer extends StatelessWidget {
-  const UserListContainer({super.key, required this.firstName, required this.lastName, required this.userName, required this.email, required this.gender, required this.enrolled, required this.index});
+class UserListContainerSmall extends StatelessWidget {
+  const UserListContainerSmall({super.key, required this.firstName, required this.lastName, required this.userName, required this.email, required this.gender, required this.enrolled, required this.index, required this.phoneNumber, required this.birthday, required this.job});
   final int index;
   final String firstName;
   final String lastName;
@@ -12,6 +12,9 @@ class UserListContainer extends StatelessWidget {
   final String email;
   final String enrolled;
   final String gender;
+  final String phoneNumber;
+  final String birthday;
+  final String job;
 
   @override
   Widget build(BuildContext context) {
@@ -43,44 +46,22 @@ class UserListContainer extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: AppPadding.p8),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
                           flex: 2,
-                          child: Center(
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    width: AppSize.s42,
-                                    height: AppSize.s42,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(AppSize.s60),
-                                        color: Theme.of(context).colorScheme.secondaryContainer
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                          IconManager.profile
-                                      ),
-                                    ),
-                                  ),
-                                  Space.w8,
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('$firstName $lastName', style: Theme.of(context).textTheme.bodyMedium,),
-                                      Text(userName, style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: AppSize.s12),),
-                                    ],
-                                  ),
-                                ],
-                              ))),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              FittedBox(child: Text('$firstName $lastName', style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: AppSize.s12),)),
+                              FittedBox(child: Text(userName, style: Theme.of(context).textTheme.bodySmall?.copyWith(fontSize: AppSize.s12),)),
+                            ],
+                          )),
                       Expanded(
                         flex: 2,
-                        child: Center(child: Text(email, style: Theme.of(context).textTheme.bodyMedium)),
+                        child: FittedBox(child: Text(email, style: Theme.of(context).textTheme.bodyMedium)),
                       ),
-                      Expanded(child: Center(child: Text(gender, style: Theme.of(context).textTheme.bodyMedium))),
-                      Expanded(child: Center(child: Text(enrolled, style: Theme.of(context).textTheme.bodyMedium))),
                       SizedBox(
                         width: AppSize.s48,
                         child: Row(
@@ -91,6 +72,9 @@ class UserListContainer extends StatelessWidget {
                               lastName: lastName,
                               email: email,
                               gender: gender,
+                              phoneNumber: phoneNumber,
+                              birthday: birthday,
+                              job: job,
                             ),
                             const DeleteUser(),
                           ],

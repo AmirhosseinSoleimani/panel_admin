@@ -1,21 +1,22 @@
 import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'overview_container.dart';
 
-class BlogOverview extends StatelessWidget {
-  const BlogOverview({super.key});
+class BlogOverviewLarge extends StatelessWidget {
+  const BlogOverviewLarge({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final textLocalization = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Dashboard', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary, fontSize: AppSize.s12)),
+        Text(textLocalization.dashboard, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary, fontSize: AppSize.s12)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Blog Overview', style: Theme.of(context).textTheme.displayLarge),
+            Text(textLocalization.overview, style: Theme.of(context).textTheme.displayLarge),
             IntrinsicHeight(
               child: Row(
                 children: [
@@ -67,32 +68,33 @@ class BlogOverview extends StatelessWidget {
             )
           ],
         ),
-        const Row(
+        Space.h16,
+        Row(
           children: [
             Expanded(
               child: OverviewContainer(
-                title: 'PAGES',
+                title: textLocalization.pages,
                 number: '182',
                 rate: '+12.4%',
               ),
             ),
             Expanded(
               child: OverviewContainer(
-                title: 'COMMENTS',
+                title: textLocalization.comments,
                 number: '8147',
                 rate: '-3.8%',
               ),
             ),
             Expanded(
               child: OverviewContainer(
-                title: 'USERS',
+                title: textLocalization.users,
                 number: '2412',
                 rate: '+12.4%',
               ),
             ),
             Expanded(
               child: OverviewContainer(
-                title: 'VIDEOS',
+                title: textLocalization.videos,
                 number: '182',
                 rate: '-8.3%',
               ),

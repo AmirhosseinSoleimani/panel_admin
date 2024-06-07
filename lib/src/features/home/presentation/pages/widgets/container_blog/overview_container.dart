@@ -25,51 +25,57 @@ class _OverviewContainerState extends State<OverviewContainer> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(AppPadding.p8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppSize.s12),
-        color: Theme.of(context).colorScheme.surface,
-        border: Border.all(
-          width: AppSize.s2,
-          color: Theme.of(context).colorScheme.secondaryContainer
-        )
-      ),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: AspectRatio(
-              aspectRatio: 2.0,
-              child: LineChart(
-                mainData(),
-              ),
-            ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('${widget.title}: ', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary)),
+              Space.h4,
+              Text(widget.number, style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.secondary)),
+            ],
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(top: AppPadding.p12, left: AppPadding.p12),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(widget.title, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary)),
-                  Space.h4,
-                  Text(widget.number, style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Theme.of(context).colorScheme.secondary)),
-                  Space.h4,
-                  Text(
+        ),
+        Container(
+          margin: const EdgeInsets.all(AppPadding.p8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(AppSize.s12),
+            color: Theme.of(context).colorScheme.surface,
+            border: Border.all(
+              width: AppSize.s2,
+              color: Theme.of(context).colorScheme.secondaryContainer
+            )
+          ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: AspectRatio(
+                  aspectRatio: 2.0,
+                  child: LineChart(
+                    mainData(),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only( left: AppPadding.p12),
+                  child: Text(
                     widget.rate,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: AppSize.s12,
                       color: (widget.rate.contains('+') ? ColorThemeManager.green : Theme.of(context).colorScheme.error)
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
   LineChartData mainData() {

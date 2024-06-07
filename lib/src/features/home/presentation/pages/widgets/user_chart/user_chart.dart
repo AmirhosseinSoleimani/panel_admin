@@ -2,6 +2,7 @@ import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:admin_panel/src/shared/ui_kits/ac_elevated_button/ac_elevate_button.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserChart extends StatefulWidget {
   const UserChart({super.key});
@@ -20,6 +21,7 @@ class _UserChartState extends State<UserChart> {
 
   @override
   Widget build(BuildContext context) {
+    final textLocalization = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.all(AppPadding.p8),
       padding: const EdgeInsets.symmetric(vertical: AppPadding.p12),
@@ -39,7 +41,7 @@ class _UserChartState extends State<UserChart> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Users:', style: Theme.of(context).textTheme.displayLarge),
+                Text('${textLocalization.users}:', style: Theme.of(context).textTheme.displayLarge),
                 ACElevatedButton(
                   width: AppSize.s150,
                   backgroundColor: Theme.of(context).colorScheme.onPrimary,
@@ -49,7 +51,7 @@ class _UserChartState extends State<UserChart> {
                     });
                   },
                   child: Text(
-                    'Show Average',
+                    textLocalization.showAverage,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
@@ -73,16 +75,17 @@ class _UserChartState extends State<UserChart> {
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
+    final textLocalization = AppLocalizations.of(context)!;
     Widget text;
     switch (value.toInt()) {
       case 2:
-        text = Text('June', style: Theme.of(context).textTheme.bodyMedium);
+        text = Text(textLocalization.june, style: Theme.of(context).textTheme.bodyMedium);
         break;
       case 5:
-        text = Text('May', style: Theme.of(context).textTheme.bodyMedium);
+        text = Text(textLocalization.may, style: Theme.of(context).textTheme.bodyMedium);
         break;
       case 8:
-        text = Text('April', style: Theme.of(context).textTheme.bodyMedium);
+        text = Text(textLocalization.april, style: Theme.of(context).textTheme.bodyMedium);
         break;
       default:
         text = Text('', style: Theme.of(context).textTheme.bodyMedium);

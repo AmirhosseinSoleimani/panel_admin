@@ -1,6 +1,8 @@
 import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:admin_panel/src/shared/ui_kits/ui_kits.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({super.key, required this.firstName, required this.middleName, required this.lastName, required this.email, required this.phoneNumber, required this.job, required this.birthday, required this.gender});
@@ -50,6 +52,7 @@ class _EditProfileState extends State<EditProfile> {
 
   @override
   Widget build(BuildContext context) {
+    final textLocalization = AppLocalizations.of(context)!;
     return InkWell(
       onTap: () {
         showDialog(
@@ -63,28 +66,28 @@ class _EditProfileState extends State<EditProfile> {
                       Row(
                         children: [
                           Expanded(
-                              child: ACTextFormField(controller: firstNameController, hintText: 'First Name'),
+                              child: ACTextFormField(controller: firstNameController, hintText: textLocalization.firstName),
                           ),
                           Space.w16,
-                          Expanded(child: ACTextFormField(controller: middleNameController, hintText: 'Middle Name')),
+                          Expanded(child: ACTextFormField(controller: middleNameController, hintText: textLocalization.middleName)),
                         ],
                       ),
                       Space.h16,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(child: ACTextFormField(controller: lastNameController, hintText: 'Last Name')),
+                          Expanded(child: ACTextFormField(controller: lastNameController, hintText: textLocalization.lastName)),
                           Space.w16,
-                          Expanded(child: ACTextFormField(controller: emailController, hintText: 'Email')),
+                          Expanded(child: ACTextFormField(controller: emailController, hintText: textLocalization.email)),
                         ],
                       ),
                       Space.h16,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(child: ACTextFormField(controller: phoneNumberController, hintText: 'Mobile Number')),
+                          Expanded(child: ACTextFormField(controller: phoneNumberController, hintText: textLocalization.mobile)),
                           Space.w16,
-                          Expanded(child: ACTextFormField(controller: birthdayController, hintText: 'Birthday')),
+                          Expanded(child: ACTextFormField(controller: birthdayController, hintText: textLocalization.birthday)),
                         ],
                       ),
                       Space.h16,
@@ -93,7 +96,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           Expanded(
                             child: DropdownButton<String>(
-                              hint: Text('Select an Item', style: Theme.of(context).textTheme.bodyMedium,),
+                              hint: Text(textLocalization.selectAnItem, style: Theme.of(context).textTheme.bodyMedium,),
                               value: selectedKey,
                               items: items.keys.map((String key) {
                                 return DropdownMenuItem<String>(
@@ -109,13 +112,15 @@ class _EditProfileState extends State<EditProfile> {
                             ),
                           ),
                           Space.w16,
-                          Expanded(child: ACTextFormField(controller: jobController, hintText: 'Job')),
+                          Expanded(child: ACTextFormField(controller: jobController, hintText: textLocalization.job)),
                         ],
                       ),
                       const Spacer(),
                       ACElevatedButton(
-                        onTap: () {},
-                        title: 'Save Edit',
+                        onTap: () {
+                          context.pop();
+                        },
+                        title: textLocalization.saveEdit,
                       )
                     ],
                   ),
@@ -127,7 +132,7 @@ class _EditProfileState extends State<EditProfile> {
       },
       child: Row(
         children: [
-          Text('Edit', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary),),
+          Text(textLocalization.edit, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary),),
           Icon(IconManager.pen, size: AppSize.s24, color: Theme.of(context).colorScheme.onSecondary)
         ],
       ),

@@ -3,6 +3,7 @@ import 'package:admin_panel/src/shared/ui_kits/ac_elevated_button/ac_elevate_but
 import 'package:admin_panel/src/shared/ui_kits/ac_text_form_field/ac_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class UploadVideoContainer extends StatefulWidget {
@@ -14,14 +15,15 @@ class UploadVideoContainer extends StatefulWidget {
 
 class _UploadVideoContainerState extends State<UploadVideoContainer> {
   ImagePicker picker = ImagePicker();
+  TextEditingController videoTitle = TextEditingController();
+  TextEditingController videoDescription = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    TextEditingController videoTitle = TextEditingController();
-    TextEditingController videoDescription = TextEditingController();
+    final textLocalization = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Upload your video', style: Theme.of(context).textTheme.titleMedium,),
+        Text(textLocalization.uploadYourVideo, style: Theme.of(context).textTheme.titleMedium,),
         Space.h8,
         InkWell(
           onTap: () {
@@ -49,24 +51,24 @@ class _UploadVideoContainerState extends State<UploadVideoContainer> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(IconManager.uploadFill, size: AppSize.s42, color: Theme.of(context).colorScheme.tertiary),
-                                Text('Selected video to upload (or drag and drop)', style: Theme.of(context).textTheme.displayLarge,),
+                                Text(textLocalization.selectVideo, style: Theme.of(context).textTheme.displayLarge,textAlign: TextAlign.center,),
                               ],
                             ),
                           ),
                         ),
                       ),
                       Space.h8,
-                      ACTextFormField(controller: videoTitle, hintText: 'Title'),
+                      ACTextFormField(controller: videoTitle, hintText: textLocalization.title),
                       Space.h8,
                       ACTextFormField(
                         controller: videoDescription,
-                        hintText: 'Description',
+                        hintText: textLocalization.description,
                         maxLines: 6,
                       ),
                       Space.h8,
                       ACElevatedButton(
                         onTap: () {},
-                        title: 'Upload',
+                        title: textLocalization.upload,
                       )
                     ],
                   ),
@@ -90,9 +92,9 @@ class _UploadVideoContainerState extends State<UploadVideoContainer> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(IconManager.uploadFill, size: AppSize.s42, color: Theme.of(context).colorScheme.tertiary,),
-                Text('Upload Video', style: Theme.of(context).textTheme.displayLarge,),
+                Text(textLocalization.uploadYourVideo, style: Theme.of(context).textTheme.displayLarge,),
                 Space.h8,
-                Text('Accepted formates: avi, mkv, mp4', style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary)),
+                Text(textLocalization.acceptedFormates, style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Theme.of(context).colorScheme.onSecondary)),
               ],
             )
           ),

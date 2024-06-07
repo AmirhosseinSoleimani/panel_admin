@@ -2,6 +2,7 @@ import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'indicator.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserDeviceChart extends StatefulWidget {
   const UserDeviceChart({super.key});
@@ -14,6 +15,7 @@ class _UserDeviceChartState extends State<UserDeviceChart> {
   int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
+    final textLocalization = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.all(AppPadding.p8),
       padding: const EdgeInsets.symmetric(vertical: AppPadding.p12),
@@ -31,7 +33,7 @@ class _UserDeviceChartState extends State<UserDeviceChart> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('User by device:', style: Theme.of(context).textTheme.displayLarge),
+            Text('${textLocalization.userByDevice}:', style: Theme.of(context).textTheme.displayLarge),
             AspectRatio(
               aspectRatio: 1.7,
               child: Row(
@@ -74,19 +76,19 @@ class _UserDeviceChartState extends State<UserDeviceChart> {
                     children: <Widget>[
                       Indicator(
                         color: ColorThemeManager.blue,
-                        text: 'Desktop',
+                        text: textLocalization.desktop,
                         isSquare: true,
                       ),
                       Space.h4,
                       Indicator(
                         color: ColorThemeManager.lightBlue,
-                        text: 'Tablet',
+                        text: textLocalization.tablet,
                         isSquare: true,
                       ),
                       Space.h4,
                       Indicator(
                         color: ColorThemeManager.lightBlue2,
-                        text: 'Mobile',
+                        text: textLocalization.mobile,
                         isSquare: true,
                       ),
                       Space.h16,

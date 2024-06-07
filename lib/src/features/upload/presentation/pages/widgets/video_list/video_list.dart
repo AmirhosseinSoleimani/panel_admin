@@ -1,6 +1,7 @@
 import 'package:admin_panel/src/features/upload/presentation/pages/widgets/video_list/video_list_container.dart';
 import 'package:admin_panel/src/shared/resources/resources.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class VideoList extends StatelessWidget {
@@ -8,10 +9,11 @@ class VideoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textLocalization = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Video List', style: Theme.of(context).textTheme.titleMedium,),
+        Text('${textLocalization.videoList}:', style: Theme.of(context).textTheme.titleMedium,),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p8),
           width: double.infinity,
@@ -26,15 +28,15 @@ class VideoList extends StatelessWidget {
               Expanded(
                   flex: 2,
                   child: Center(
-                      child: Text('Title', style: Theme.of(context).textTheme.displayMedium,),
+                      child: Text(textLocalization.title, style: Theme.of(context).textTheme.displayMedium,),
                   ),
               ),
               Expanded(
                   flex: 3,
-                  child: Center(child: Text('Description', style: Theme.of(context).textTheme.displayMedium,)),
+                  child: Center(child: Text(textLocalization.description, style: Theme.of(context).textTheme.displayMedium,)),
               ),
-              Expanded(child: Center(child: Text('Publisher', style: Theme.of(context).textTheme.displayMedium,))),
-              Expanded(child: Center(child: Text('Date Publish', style: Theme.of(context).textTheme.displayMedium,))),
+              Expanded(child: Center(child: Text(textLocalization.publisher, style: Theme.of(context).textTheme.displayMedium,))),
+              Expanded(child: Center(child: Text(textLocalization.publisherDate, style: Theme.of(context).textTheme.displayMedium,))),
               const SizedBox(
                 width: AppSize.s48,
               ),

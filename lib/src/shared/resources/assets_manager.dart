@@ -28,6 +28,7 @@ class IconManager {
 
 
 
+
   // Material Icons
   static const IconData subscription = Icons.shopping_bag;
   static const IconData relief = Icons.miscellaneous_services;
@@ -43,5 +44,7 @@ class IconManager {
   static const IconData more = Icons.more_vert_outlined;
   static const IconData visibility = Icons.visibility_rounded;
   static const IconData visibilityOff = Icons.visibility_off_rounded;
+  static const IconData logOut = Icons.logout_outlined;
+  static const IconData addPhoto = Icons.add_a_photo_outlined;
 
 }
